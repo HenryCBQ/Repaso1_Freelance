@@ -1,0 +1,241 @@
+/*Definir una paleta de colores, por medio de variables CSS. Se le llaman Custom Properties*/
+:root{
+    --primario: #51CBD6;
+    --secundario: #B8B3D8;
+    --balnco: #ffffff;
+    --oscuro: #212121;
+    --gris: #757575;
+    --grinClaro: #dfe9fe;
+}
+
+/*Reinicio tamaño caracteres de todo el documento para más precisión en la unidad de medida rem, esta medida se adapta mejor 
+a diferentes dispositivos. 1 rem = 10px*/
+html {
+    font-size: 62.5%;
+    box-sizing: border-box; /*Evito que al agregar un padding, border o margin cambie el tamaño de los elementos*/
+}
+/*Evito que al agregar un padding, border o margin cambie el tamaño del elemento, es decir, le sumen al tamaño*/
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+body {
+    font-size: 16px;
+    font-family: 'Krub', sans-serif; /*Aplico un mismo estilo de letra*/
+    background-image: linear-gradient(to top, var(--grinClaro) 0%, var(--balnco) 100%);
+}
+
+/*Estilos genericos para los titulos*/
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1, h2, h3{
+    text-align: center;
+}
+
+/*Calse generica para los botones*/
+.boton{
+    background-color: var(--secundario);
+    color: var(--balnco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+/*Media query para la clase boton*/
+@media (min-width: 768px){
+    .boton{
+        width: auto;
+    }
+}
+.boton:hover{
+    cursor: pointer;
+}
+
+/*Utilidades*/
+.w-sm-width{
+    width: 100%;
+}
+@media (min-width: 768px){
+    .w-sm-width{
+        width: auto;
+    }
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha{
+    justify-content: flex-end;
+}
+
+/*Sombra generada con www.cssmatic.com/box-shadow*/
+.sombra{
+    -webkit-box-shadow: 7px 7px 12px 6px rgba(161,161,161,0.46);
+    -moz-box-shadow: 7px 7px 12px 6px rgba(161,161,161,0.46);
+    box-shadow: 7px 7px 12px 6px rgba(161,161,161,0.46);
+    background-color: var(--balnco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/*Estilos del título*/
+.titulo span {
+    font-size: 2rem;
+}
+
+/*Estilos del menú de navegación*/
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+.nav-bg{
+    background-color: var(--secundario);
+}
+.navegacion-principal{
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 768px){
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+.navegacion-principal a{
+    display: block;
+    text-align: center;
+    color: var(--balnco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+.navegacion-principal a:hover{
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+/*Estilos del hero*/
+.hero{
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+.contenido-hero{
+    position: absolute;
+    background-color: rgba(0,0,0, .6);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contenido-hero h2, .contenido-hero p{
+    color: var(--balnco);
+}
+.contenido-hero .ubicacion{
+    display: flex;
+}
+
+/*Estilos de la seccion de servicios*/
+@media (min-width: 768px){
+    .servicios{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /*Divide las columnas por fracciones iguales, de acuerdo al tamaño del conedor*/
+        column-gap: 1rem; /*Separo cada columna*/
+    } 
+}
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.servicio h3{
+    color: var(--secundario);
+    font-weight: normal;
+}
+.servicio p{
+    line-height: 2;
+    text-align: center;
+}
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/*Estilos del formulario de la sección contacto*/
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem, 100%); /*Toma el valor más pequeño entre los dos parámetros ingresados, ahorra media querys*/
+    margin: 0 auto; /*Centro con margin cuando el contenedor padre no tiene un display flex y necesito centrar un contenedor tipo bloque.*/
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.formulario fieldset{
+    border: none;
+}
+.formulario legend{
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--secundario);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+.contenedor-campos{
+    margin-bottom: 1rem;
+}
+@media (min-width: 768px){
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }
+    .campo:nth-child(3),
+    .campo:nth-child(4){ /*Se utiliza para seleccionar elementos en orden que contengan la misma clase en este casp "campo"*/
+        grid-column: 1/3;
+    }
+}
+.campo{
+    color: var(--balnco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+.campo .input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+.campo textarea{
+    height: 20rem;
+}
+
+/*Estilos del footer*/
+.footer{
+    text-align: center;
+}
